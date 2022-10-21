@@ -48,10 +48,10 @@ print('Всего клеток:', len(zoo), 'шт.')
 
 while True:
     number = input('Введите номер клетки или "q" для выхода: ')
-    if number.isnumeric() == False :
-        print('Введено число!')
-    elif number == 'q' :
+    if number == 'q' :
         exit()
+    elif number.isnumeric() == False :
+        print('Введено число!')
     elif 0 < int(number) <= len(zoo) :
         number_list_zoo = int(number) - 1
         print(zoo[int(number_list_zoo)], ' сидит в клетке №', number)
