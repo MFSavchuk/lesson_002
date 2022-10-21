@@ -97,15 +97,17 @@ while True:
 
     elif move == '3':
         print('Всего клеток:', len(zoo), 'шт.')
+        print('Введите номер клетки или "q" для возвращения назад: ')
         while True:
-            number = input('Введите номер клетки или "q" для озвращения назад: ')
+            number = input()
             if number == 'q':
                 print('\n')
                 break
             elif not number.isnumeric():
-                print('Введено число или "q"!')
+                print('Введено число или "q":')
             elif 0 < int(number) <= len(zoo):
                 number_list_zoo = int(number) - 1
                 print(zoo[int(number_list_zoo)], ' сидит в клетке №', number)
+                print('Введите номер клетки или "q" для возвращения назад:')
             else:
-                print('Неправильный номер клетки!')
+                print('Такой клетки нет! Попробуй другой номер или "q" для возвращения назад ')
