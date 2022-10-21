@@ -84,15 +84,15 @@ while True:
                 print('\n')
                 break
 
-            elif len(zoo) == 0:
-                print('В зоопарке пусто! Ты выпустил всех! Ура!!!')
-                exit()
-
             elif free_animal in zoo:
                 del zoo[zoo.index(free_animal)]
                 print(free_animal, 'на свободе!')
                 print('Оставшиеся обитали зоопарка: ', zoo)
                 print('\n')
+
+            if len(zoo) == 0:
+                print('В зоопарке пусто! Ты выпустил всех! Ура!!!')
+                exit()
 
     elif move == '3':
         print('Всего клеток:', len(zoo), 'шт.')
