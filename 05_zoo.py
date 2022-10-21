@@ -56,22 +56,23 @@ while True:
         print('Игра окончена!')
         exit()
 
-    elif move.isnumeric() == False :
+    elif not move.isnumeric():
         print('Введите вариант дейстивия!')
         print('\n')
 
     elif move == '1':
         while True:
-            animal = input('Напиши любое название живтного, даже если оно известно только тебе или "q" для возвращения назад: ')
+            animal = input(
+                'Напиши любое название животного, даже если оно известно только тебе или "q" для возвращения назад: ')
             if animal == 'q':
                 print('\n')
                 break
-            elif animal.isalpha() == False:
+            elif not animal.isalpha():
                 print('Введено имя (без цифр)')
                 print('\n')
             else:
                 zoo.append(animal)
-                print('Животное ','"' ,animal,'"', 'в клетке!')
+                print('Животное ', '"', animal, '"', 'в клетке!')
                 print('Теперь в зоопарке: ', zoo)
                 print('Жаль!', 'Очень много животных =( Лучше отпустить')
                 print('\n')
@@ -101,7 +102,7 @@ while True:
             if number == 'q':
                 print('\n')
                 break
-            elif number.isnumeric() == False:
+            elif not number.isnumeric():
                 print('Введено число или "q"!')
             elif 0 < int(number) <= len(zoo):
                 number_list_zoo = int(number) - 1
