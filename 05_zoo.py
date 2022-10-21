@@ -44,25 +44,67 @@ print('Результат сортировки:', zoo)
 # Добавляем ввод номера клетки
 
 
-print('Всего клеток:', len(zoo), 'шт.')
-
+print('\n')
 while True:
-    number = input('Введите номер клетки или "q" для выхода: ')
-    if number == 'q' :
+    print('Введите 1 - отдать животное')
+    print('Введите 2 - отпустить животное')
+    print('Введите 3 - узнать кто в какой клетке')
+    print('Введите "end" для окончания игры:')
+    move = input()
+
+    if move == 'end':
+        print('Игра окончена!')
         exit()
-    elif number.isnumeric() == False :
-        print('Введено число!')
-    elif 0 < int(number) <= len(zoo) :
-        number_list_zoo = int(number) - 1
-        print(zoo[int(number_list_zoo)], ' сидит в клетке №', number)
+
+    elif move.isnumeric() == False :
+        print('Введите вариант дейстивия!')
         print('\n')
-    else:
-        print('Неправильный номер клетки!')
 
+    elif move == '1':
+        while True:
+            animal = input('Напиши любое название живтного, даже если оно известно только тебе или "q" для возвращения назад: ')
+            if animal == 'q':
+                print('\n')
+                break
+            elif animal.isalpha() == False:
+                print('Введено имя (без цифр)')
+                print('\n')
+            else:
+                zoo.append(animal)
+                print('Животное ','"' ,animal,'"', 'в клетке!')
+                print('Теперь в зоопарке: ', zoo)
+                print('Жаль!', 'Очень много животных =( Лучше отпустить')
+                print('\n')
 
+    elif move == '2':
+        print('Обитали зоопарка: ', zoo)
+        while True:
+            free_animal = input('Кого отпустим?? или "q" для возвращения назад: ')
+            if free_animal == 'q':
+                print('\n')
+                break
 
+            elif len(zoo) == 0:
+                print('В зоопарке пусто! Ты выпустил всех! Ура!!!')
+                exit()
 
+            elif free_animal in zoo:
+                del zoo[zoo.index(free_animal)]
+                print(free_animal, 'на свободе!')
+                print('Оставшиеся обитали зоопарка: ', zoo)
+                print('\n')
 
-
-
-
+    elif move == '3':
+        print('Всего клеток:', len(zoo), 'шт.')
+        while True:
+            number = input('Введите номер клетки или "q" для озвращения назад: ')
+            if number == 'q':
+                print('\n')
+                break
+            elif number.isnumeric() == False:
+                print('Введено число или "q"!')
+            elif 0 < int(number) <= len(zoo):
+                number_list_zoo = int(number) - 1
+                print(zoo[int(number_list_zoo)], ' сидит в клетке №', number)
+            else:
+                print('Неправильный номер клетки!')
