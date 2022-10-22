@@ -38,7 +38,7 @@ zoo.insert(1, 'Кот')
 # Сортируем список по алфавиту
 
 zoo.sort()
-#print('Сортировка...')
+# print('Сортировка...')
 # print('Результат сортировки:', zoo)
 
 # Добавляем ввод номера клетки
@@ -71,11 +71,24 @@ while True:
                 print('Введено имя (без цифр)')
                 print('\n')
             else:
-                zoo.append(animal)
-                print('Животное ', '"', animal, '"', 'в клетке!')
-                print('Теперь в зоопарке: ', zoo)
-                print('Жаль!', 'Очень много животных =( Лучше отпустить')
-                print('\n')
+                print('Ты уверен что хоченшь его отдать? Напиши Да или Нет: ')
+                while True:
+                    answer = input()
+                    print('\n')
+                    if answer == 'Да':
+                        zoo.append(animal)
+                        print('Животное ', '"', animal, '"', 'в клетке!')
+                        print('Теперь в зоопарке: ', zoo)
+                        print('Жаль!', 'Очень много животных =( Лучше отпустить')
+                        print('\n')
+                        break
+                    elif answer == 'Нет':
+                        print('Хорошо, что передумат!!!')
+                        print('\n')
+                        break
+                    elif answer != 'Да' or answer != 'Нет':
+                        print('Напиши Да или Нет: ')
+                        print('\n')
 
     elif move == '2':
         print('Обитали зоопарка: ', zoo)
@@ -84,6 +97,10 @@ while True:
             if free_animal == 'q':
                 print('\n')
                 break
+
+            elif free_animal not in zoo:
+                print('Такого животного нет в зоопарке')
+                print('\n')
 
             elif free_animal in zoo:
                 del zoo[zoo.index(free_animal)]
